@@ -14,7 +14,7 @@ const SOURCE = "STARTUP SCHOOL";
        let $ = cheerio.load(html);
 				
        // calculations where I get NewUrl variable...
-		$('.presentation-card').each(function() {
+		$('.presentation-card').each(function() { 
 		const cmpLink = $(this).attr('href');      
         const link = 'https://www.startupschool.org/'+cmpLink;
 				   Urls.push(link);					   			   
@@ -27,16 +27,16 @@ const SOURCE = "STARTUP SCHOOL";
 			// iterating the urls in array Urls
      for (let i = 0; i <= Urls.length-1; i++) {
             let url = Urls[i];
-           const items = {
-				 Source: SOURCE,
-				 Presenter: "",
-				 Topic: "",
-		         Email: "",
-		         Website: "",
-		         Description: "",
-		         Videosrc: "",
-		         Team: "",
-				 Positions: "",
+           const items = {  
+		   Source: SOURCE,  
+		   Presenter: "",  
+		   Topic: "",  
+		   Email: "",  
+		   Website: "",  
+		   Description: "",  
+		   Videosrc: "",  
+		   Team: "",  
+		   Positions: "",
                   };	
 				
     request(url,function (error, response, html) {      
@@ -75,16 +75,16 @@ const SOURCE = "STARTUP SCHOOL";
 			     items.Team = ItemArray.Member;
 			     items.Positions = ItemArray.Title;});									 		
 	  });
-			
-          const item_source = items.Source;
-	      const item_presenter = items.Presenter;
-	      const item_topic = items.Topic;
-	      const item_email = items.Email;
-	      const item_website = items.Website;
-	      const item_description = items.Description;
-	      const item_video = items.Videosrc;
-	      const item_team = items.Team;
-	      const item_titles = items.Positions;
+			  
+		const item_source = items.Source;
+		const item_presenter = items.Presenter;
+		const item_topic = items.Topic;
+		const item_email = items.Email;
+		const item_website = items.Website;
+		const item_description = items.Description;
+		const item_video = items.Videosrc;
+		const item_team = items.Team;
+		const item_titles = items.Positions;
 	
         // connecting and saving to mongodb 
      MongoClient.connect(mongourl, function(err, db) {
