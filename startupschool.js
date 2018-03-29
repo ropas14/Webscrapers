@@ -10,8 +10,8 @@ const SOURCE = "STARTUP SCHOOL";
   function(callback) {
   // fetching the webpage using request
    request('https://www.startupschool.org/presentations/vertical/agriculture-agtech?course=1',function (error, response, html) {
-       if (error) return callback(error); 
-       let $ = cheerio.load(html);
+         if (error) return callback(error); 
+         let $ = cheerio.load(html);
 				
        // calculations where I get NewUrl variable...
 		$('.presentation-card').each(function() { 
@@ -19,14 +19,13 @@ const SOURCE = "STARTUP SCHOOL";
         const link = 'https://www.startupschool.org/'+cmpLink;
 				   Urls.push(link);					   			   
 	           });
-			   
                 callback();
             });		
         },
-  function(callback) {	 
+      function(callback) {	 
 			// iterating the urls in array Urls
-     for (let i = 0; i <= Urls.length-1; i++) {
-            let url = Urls[i];
+         for (let i = 0; i <= Urls.length-1; i++) {
+           let url = Urls[i];
            const items = {  
 		   Source: SOURCE,  
 		   Presenter: "",  
@@ -39,7 +38,7 @@ const SOURCE = "STARTUP SCHOOL";
 		   Positions: "",
                   };	
 				
-    request(url,function (error, response, html) {      
+          request(url,function (error, response, html) {      
 			    let $ = cheerio.load(html);
                 $('div.ui.basic.wide.segment').each(function() {
 			     items.Presenter = $(this).find('h1.ui.header.center.aligned')
@@ -74,7 +73,7 @@ const SOURCE = "STARTUP SCHOOL";
 			     Membership.forEach(function(ItemArray) {
 			     items.Team = ItemArray.Member;
 			     items.Positions = ItemArray.Title;});									 		
-	  });
+	          });
 			  
 		const item_source = items.Source;
 		const item_presenter = items.Presenter;
