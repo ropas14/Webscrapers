@@ -64,9 +64,9 @@ const SOURCE = "STARTUP SCHOOL";
 			                 Title: $(this).find('h4>div.sub.header').text().trim(),
 							 };
 		           Membership.push(people);
-		           });			
+		           });						
 				   
-			    /**						
+				   /**						
 				 * separating the array of objects.						
 				 * FIXME: I don't know why its only returning the first object array details.						
 				 */
