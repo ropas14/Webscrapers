@@ -14,10 +14,10 @@ const SOURCE = "STARTUP SCHOOL";
          let $ = cheerio.load(html);
 				
        // calculations where I get NewUrl variable...
-		$('.presentation-card').each(function() { 
-		const cmpLink = $(this).attr('href');      
-        const link = 'https://www.startupschool.org/'+cmpLink;
-				   Urls.push(link);					   			   
+		$('.presentation-card').each(function() {  
+		const cmpLink = $(this).attr('href');  
+		const link = 'https://www.startupschool.org/'+cmpLink;  
+		Urls.push(link);					   			   
 	           });
                 callback();
             });		
