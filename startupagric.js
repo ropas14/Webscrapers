@@ -66,10 +66,10 @@ const SOURCE = "STARTUP SCHOOL";
 		           Membership.push(people);
 		           });			
 				   
-				   /**						
-				* separating the array of objects.						
-				* FIXME: I don't know why its only returning the first object array details.						
-				*/
+			    /**						
+				 * separating the array of objects.						
+				 * FIXME: I don't know why its only returning the first object array details.						
+				 */
 			     Membership.forEach(function(ItemArray) {
 			     items.Team = ItemArray.Member;
 			     items.Positions = ItemArray.Title;});									 		
