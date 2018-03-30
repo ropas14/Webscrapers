@@ -61,7 +61,7 @@ const SOURCE = "STARTUP SCHOOL";
 				  // getting the members of the Company and their positions			
 		           const people = { 
 				   Member: $(this).find('h4.ui.header').clone().children().remove().end().text(),
-			                 Title: $(this).find('h4>div.sub.header').text().trim(),
+			                 Title: $(this).find('h4>div.sub.header').text().trim(),					
 							 };
 		           Membership.push(people);
 		           });						
