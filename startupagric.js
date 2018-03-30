@@ -22,7 +22,7 @@ const SOURCE = "STARTUP SCHOOL";
                 callback();
             });		
         },
-      function(callback) {	 
+       async function(callback) {	 
 			// iterating the urls in array Urls
          for (let i = 0; i <= Urls.length-1; i++) {
            let url = Urls[i];
@@ -38,7 +38,7 @@ const SOURCE = "STARTUP SCHOOL";
 		   Positions: "",
                   };	
 				
-          request(url,function (error, response, html) {      
+          await request(url,function (error, response, html) {      
 			    let $ = cheerio.load(html);
                 $('div.ui.basic.wide.segment').each(function() {
 			     items.Presenter = $(this).find('h1.ui.header.center.aligned')
@@ -93,13 +93,13 @@ const SOURCE = "STARTUP SCHOOL";
 	                   description:item_description, video:item_video, allmembers:item_team , memberspositions:item_titles};
      dbo.collection("AgricultureCollection").insertOne(myobject, function(err, res) {
      if (err) throw err;
-     console.log("successfully installed");
+     console.log("Saved");
      db.close();
                     });
               });
          });				
       }  
     }
- ], function (err) {
-    if (!err) callback();       
+ ], function (err,results) {
+    if (!err) console.log("Done" + results);        
 		});
